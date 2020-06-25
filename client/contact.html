@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-add-css="false"></script>
+  <link href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css" rel="stylesheet" />
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBWhaOEV6xDRdlE9NP8JQj6n1aI3jMaQs&callback=initMap&libraries=places">
+  </script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Welcomet to Node.js</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="/"><b>Home</b></a></li>
+        <li><a href="/contact"><b>Contact</b></a></li>
+        <li><a href="/addContact"><b>Add Contact</b></a></li>
+        <li><a href="/stock"><b>Stock Page</b></a></li>
+        <li><a href="admin"><b>Admin</b></a></li>
+        <li><a href="/logout"><i class="fas fa-sign-out-alt" id="logoutBtn"></i></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="greet"><b>Welcome</b></li>
+      </ul>
+    </div>
+  </nav>
+
+  <br><br>
+
+  <table class="table" id="contactTable">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Favorite Place</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <br><br>
+
+  <div id="mapWidget">
+    <div id="panel"></div>
+    <div id="map"></div>
+    <div>
+      <table id="mapForms">
+        <tr>
+          <td><i class="fas fa-map-marked-alt fa-5x"></i></td>
+          <td>
+            <form id="mapSearchForm">
+              <div class="line">Find
+                <select name="locationType" id="mapDropDown">
+                  <option value="restaurant">Restaurant</option>
+                  <option value="supermarket">Supermarket</option>
+                  <option value="parking">Parking</option>
+                  <option value="hospital">Hospital</option>
+                  <option value="Other">Other</option>
+                </select></div>
+              <div class="line"><input type="text" placeholder="Enter Other Places" id="other" disabled></div>
+              <div class="line">in <input type="number" id="radius"> meters</div>
+              <div class="line"><input type="submit" value="Search" id="mapSearch"></div>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-route fa-5x"></i></td>
+          <td>
+            <form id="routeSearchForm">
+              <div class="line">From <input type="text" class="pos" id="startAddress"></div>
+              <div class="line">to <input type="text" class="pos" id="destination"> by</div>
+              <div class="line">WALK<input type="radio" name="Go" value="WALKING" checked> DRIVE<input type="radio"
+                  name="Go" value="DRIVING">
+                TRANS<input type="radio" name="Go" value="TRANSIT"></div>
+              <div><input type="submit" value="Go"></div>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script src="js/contact.js"></script>
+</body>
+
+</html>

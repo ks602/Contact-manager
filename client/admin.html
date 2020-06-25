@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-add-css="false"></script>
+  <link href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="/"><b>Home</b></a></li>
+        <li><a href="/contact"><b>Contact</b></a></li>
+        <li><a href="/addContact"><b>Add Contact</b></a></li>
+        <li><a href="/stock"><b>Stock Page</b></a></li>
+        <li><a href="admin"><b>Admin</b></a></li>
+        <li><a href="/logout"><i class="fas fa-sign-out-alt" id="logoutBtn"></i></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="greet"><b>Welcome</b></li>
+      </ul>
+    </div>
+  </nav>
+  <br><br>
+
+  <div id="errorMsg" class="failMsg">This login is used by another user.</div>
+
+  <div class="container">
+    <button type="button" class="btn btn-outline-primary" id="addBtn"><i class="fas fa-plus tool"></i>Add User</button>
+
+    <table class="table table-bordered" id="adminTable">
+      <thead class="thead">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Login</th>
+          <th scope="col">New Password</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</body>
+<script src="js/admin.js"></script>
+
+</html>

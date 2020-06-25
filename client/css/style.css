@@ -1,0 +1,156 @@
+.jumbotron {
+  text-align: center;
+  padding: 0px;
+  overflow: hidden;
+  background: DarkSeaGreen !important;
+}
+
+#loginHeader {
+  padding: 80px;
+}
+
+.failMsg {
+  width: 70%;
+  background-color: lightgreen;
+  border: green 1px solid;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  margin: 10px auto;
+  display: none;
+}
+
+#loginButton {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.w-75 {
+  width: 75%;
+  margin: 20px auto;
+}
+
+#contactTable {
+  width: 80%;
+  margin: auto;
+  height: 100px;
+  overflow: scroll;
+}
+
+.addContactTable {
+  width: 50%;
+  margin: auto;
+  margin-top: 5vh;
+}
+
+.tool {
+  margin: 0px 5px;
+  color: black;
+}
+
+#adminTable {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+#adminTable thead {
+  background: rgb(238, 122, 122);
+}
+
+th {
+  text-align: center;
+}
+
+#addBtn {
+  margin: 0px 0px 10px 5%;
+}
+
+.adminFormInput {
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+a>* {
+  pointer-events: none;
+}
+
+#greet {
+  margin: 20px;
+}
+
+/* Map CSS */
+#mapWidget {
+  width: 1150px;
+  margin: auto;
+}
+
+#map {
+  float: left;
+  height: 500px;
+  width: 800px;
+}
+
+#mapForms {
+  margin-bottom: 20px;
+  border-spacing: 0px;
+  float: left;
+  width: 350px;
+  height: 500px;
+  background-color: #edf7f0;
+  border: none;
+  border-radius: 0px;
+}
+
+#mapForms tr:nth-child(1) {
+  background-color: #96c0d6;
+}
+
+#mapForms tr:nth-child(2) {
+  background-color: #8495af;
+}
+
+#mapForms td {
+  padding-left: 20px;
+}
+
+#mapForms td:nth-child(1) {
+  color: aliceblue;
+}
+
+#mapForms input[type="submit"] {
+  border-radius: 3px;
+  border: 1px lightgray;
+}
+
+#mapForms input[type="submit"]:hover {
+  background-color: rgb(79, 125, 170);
+}
+
+#mapForms input[type="text"] {
+  height: 25px;
+}
+
+#radius {
+  width: 90px;
+  height: 25px;
+}
+
+.pos {
+  width: 150px;
+}
+
+.line {
+  margin: 5px 0px;
+}
+
+#panel {
+  display: none;
+  float: left;
+  background-color: white;
+  width: 250px;
+  height: 500px;
+  overflow: scroll;
+}

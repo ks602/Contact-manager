@@ -1,0 +1,111 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-add-css="false"></script>
+  <link href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="/"><b>Home</b></a></li>
+        <li><a href="contact"><b>Contact</b></a></li>
+        <li><a href="addContact"><b>Add Contact</b></a></li>
+        <li><a href="stock"><b>Stock Page</b></a></li>
+        <li><a href="admin"><b>Admin</b></a></li>
+        <li><a href="/logout"><i class="fas fa-sign-out-alt" id="logoutBtn"></i></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="greet"><b>Welcome</b></li>
+      </ul>
+    </div>
+  </nav><br><br><br>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <center>Welcome to Stock Page</center>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col">
+        <table class="table table-bordered table-hover">
+          <tbody>
+            <tr>
+              <td class="col-md-6">Company</td>
+              <td class="col-md-6">
+                <div class="form-group">
+                  <select name="Company" id="company">
+                    <option value="MSFT">Microsoft</option>
+                    <option value="BA">Boeing Company</option>
+                    <option value="AAPL">Apple Inc</option>
+                    <option value="AMZN">Amazon</option>
+                    <option value="NVDA">NVIDIA Corporation</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button type="button" id="getData">Get Data</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  <div class="container">
+    <table class="table" id="StockData">
+      <thead>
+        <tr>
+          <th scope="col">Company-MetaData</th>
+          <th scope="col">Stock-Info</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+
+  <script>
+    // TODO: Hit the TIME_SERIES_DAILY endpoint of the alphavantage API for the company that was selected in the dropdown.Display the Json data
+    document.getElementById("greet").innerHTML = "<b>Welcome " + window.localStorage.getItem('user') + "!</b>";
+    button = document.getElementById("getData");
+    button.addEventListener("click", getData);
+
+    function getData(e) {
+      list = document.getElementById("company");
+      company = list.options[list.selectedIndex].value;
+      fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + company +
+        "&apikey=TKY4WALC6M02J83K")
+        .then(
+          response => {
+            return response.json();
+          }
+        )
+        .then(data => {
+          html = "<tr><td id='metadata'></td><td id='stockInfo'></td></tr>";
+          tbody = document.getElementById("StockData").children[1];
+          tbody.innerHTML = html;
+          document.getElementById("metadata").innerText = JSON.stringify(data["Meta Data"], null, 4);
+          document.getElementById("stockInfo").innerText = JSON.stringify(data[
+            "Time Series (Daily)"], null, 4);
+        });
+    }
+  </script>
+</body>
+
+</html>
