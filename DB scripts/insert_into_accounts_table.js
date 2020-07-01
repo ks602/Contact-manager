@@ -1,6 +1,16 @@
 const mysql = require("mysql");
 const crypto = require('crypto');
-const dbconfig = require("../dbconfig.json");
+
+require("dotenv").config({
+  path: __dirname + '/../.env'
+});
+const dbconfig = {
+  "host": process.env["DB_HOST"],
+  "user": process.env["DB_USER"],
+  "password": process.env["DB_PASSWORD"],
+  "database": process.env["DB_DATABASE"],
+  "port": process.env["DB_PORT"]
+};
 const con = mysql.createConnection(dbconfig);
 
 con.connect(function (err) {
@@ -10,9 +20,9 @@ con.connect(function (err) {
   console.log("Connected!");
 
   let rowToBeInserted = {
-    acc_name: 'charlie', // replace with acc_name chosen by you OR retain the same value
-    acc_login: 'charlie', // replace with acc_login chosen by you OR retain the same vallue
-    acc_password: crypto.createHash('sha256').update("tango").digest('base64') // replace with acc_password chosen by you OR retain the same value
+    acc_name: '', // replace with acc_name chosen by you OR retain the same value
+    acc_login: '', // replace with acc_login chosen by you OR retain the same vallue
+    acc_password: crypto.createHash('sha256').update("password").digest('base64') // replace with acc_password chosen by you OR retain the same value
   };
 
   let sql = ``;

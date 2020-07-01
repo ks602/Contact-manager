@@ -5,7 +5,15 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const crypto = require('crypto');
 const mysql = require("mysql");
-const dbconfig = require("./dbconfig.json");
+
+require("dotenv").config();
+const dbconfig = {
+  "host": process.env["DB_HOST"],
+  "user": process.env["DB_USER"],
+  "password": process.env["DB_PASSWORD"],
+  "database": process.env["DB_DATABASE"],
+  "port": process.env["DB_PORT"]
+};
 
 dbconfig.connectionLimit = 100;
 pool = mysql.createPool(dbconfig);
@@ -13,7 +21,7 @@ pool = mysql.createPool(dbconfig);
 // init body-parser
 app.use(express.urlencoded({
   extended: true
-}))
+}));
 app.use(bodyParser.json());
 
 // use express-session

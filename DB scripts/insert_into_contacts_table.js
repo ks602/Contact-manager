@@ -1,6 +1,16 @@
 const mysql = require("mysql");
 const crypto = require('crypto');
-const dbconfig = require("../dbconfig.json");
+
+require("dotenv").config({
+  path: __dirname + '/../.env'
+});
+const dbconfig = {
+  "host": process.env["DB_HOST"],
+  "user": process.env["DB_USER"],
+  "password": process.env["DB_PASSWORD"],
+  "database": process.env["DB_DATABASE"],
+  "port": process.env["DB_PORT"]
+};
 const con = mysql.createConnection(dbconfig);
 
 con.connect(function (err) {
