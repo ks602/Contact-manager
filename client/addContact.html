@@ -20,7 +20,6 @@
         <li><a href="contact"><b>Contact</b></a></li>
         <li><a href="addContact"><b>Add Contact</b></a></li>
         <li><a href="stock"><b>Stock Page</b></a></li>
-        <li><a href="admin"><b>Admin</b></a></li>
         <li><a href="/logout"><i class="fas fa-sign-out-alt" id="logoutBtn"></i></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -30,7 +29,7 @@
   </nav><br>
 
   <div class="container">
-    <form name="addContact" method="post" action="/postContact">
+    <form name="addContact" method="post" action="/contact">
       <table class="table table-bordered table-hover addContactTable">
         <tbody>
           <tr>
@@ -47,7 +46,7 @@
           </tr>
           <tr>
             <th scope="row">Phone Number</th>
-            <td><input type="text" class="form-control" name="phoneNumber" required maxlength="30"></td>
+            <td><input type="text" pattern="[0-9]" class="form-control" name="phoneNumber" required maxlength="30"></td>
           </tr>
           <tr>
             <th scope="row">Favorite Place</th>
@@ -55,7 +54,7 @@
           </tr>
           <tr>
             <th scope="row">Enter URL for the Favorite Place</th>
-            <td><input type="text" class="form-control" name="favoritePlaceURL" required maxlength="1024"></td>
+            <td><input type="url" class="form-control" name="favoritePlaceURL" required maxlength="1024"></td>
           </tr>
           <tr>
             <th scope="row"></th>

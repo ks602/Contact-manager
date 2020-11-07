@@ -20,12 +20,12 @@ con.connect(function (err) {
   console.log("Connected!");
 
   let rowToBeInserted = {
-    acc_name: '', // replace with acc_name chosen by you OR retain the same value
-    acc_login: '', // replace with acc_login chosen by you OR retain the same vallue
-    acc_password: crypto.createHash('sha256').update("password").digest('base64') // replace with acc_password chosen by you OR retain the same value
+    acc_name: "charlie chan",
+    acc_login: "charlie",
+    acc_password: crypto.createHash('sha256').update("tango").digest('base64'),
+    acc_role: "admin"
   };
 
-  let sql = ``;
   con.query('INSERT tbl_accounts SET ?', rowToBeInserted, function (err, result) {
     if (err) {
       throw err;
