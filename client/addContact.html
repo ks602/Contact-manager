@@ -1,64 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-add-css="false"></script>
   <link href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="nav navbar-nav">
-        <li><a href="/"><b>Home</b></a></li>
-        <li><a href="contact"><b>Contact</b></a></li>
-        <li><a href="addContact"><b>Add Contact</b></a></li>
-        <li><a href="stock"><b>Stock Page</b></a></li>
-        <li><a href="/logout"><i class="fas fa-sign-out-alt" id="logoutBtn"></i></a></li>
+        <li>
+          <a href="/"><b>Home</b></a>
+        </li>
+        <li>
+          <a href="contact"><b>Contact</b></a>
+        </li>
+        <li>
+          <a href="addContact"><b>Add Contact</b></a>
+        </li>
+        <li>
+          <a href="stock"><b>Stock Page</b></a>
+        </li>
+        <li>
+          <a href="/logout"><i class="fas fa-sign-out-alt" id="logoutBtn"></i></a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li id="greet"><b>Welcome</b></li>
       </ul>
     </div>
-  </nav><br>
+  </nav>
+  <br />
 
   <div class="container">
     <form name="addContact" method="post" action="/contact">
-      <table class="table table-bordered table-hover addContactTable">
+      <table class="table table-hover addContactTable">
+        <thead>
+          <th colspan="2" rowspan="2" id="addContactHead">Add Contact</th>
+        </thead>
         <tbody>
           <tr>
             <th scope="row">Name</th>
-            <td><input type="text" class="form-control" name="contactName" required maxlength="30"></td>
+            <td>
+              <input type="text" class="form-control" name="contactName" required maxlength="30" />
+            </td>
           </tr>
           <tr>
             <th scope="row">Email</th>
-            <td><input type="email" class="form-control" name="email" required maxlength="30"></td>
+            <td>
+              <input type="email" class="form-control" name="email" required maxlength="30" />
+            </td>
           </tr>
           <tr>
             <th scope="row">Address</th>
-            <td><input type="text" class="form-control" name="address" required maxlength="80"></td>
+            <td>
+              <input type="text" class="form-control" name="address" required maxlength="80" />
+            </td>
           </tr>
           <tr>
             <th scope="row">Phone Number</th>
-            <td><input type="text" pattern="[0-9]" class="form-control" name="phoneNumber" required maxlength="30"></td>
+            <td>
+              <input type="text" pattern="[0-9]*" class="form-control" name="phoneNumber" required maxlength="30" />
+            </td>
           </tr>
           <tr>
             <th scope="row">Favorite Place</th>
-            <td><input type="text" class="form-control" name="favoritePlace" required maxlength="30"></td>
+            <td>
+              <input type="text" class="form-control" name="favoritePlace" required maxlength="30" />
+            </td>
           </tr>
           <tr>
-            <th scope="row">Enter URL for the Favorite Place</th>
-            <td><input type="url" class="form-control" name="favoritePlaceURL" required maxlength="1024"></td>
+            <th scope="row">URL for the Favorite Place</th>
+            <td>
+              <input type="url" class="form-control" name="favoritePlaceURL" required maxlength="1024" />
+            </td>
           </tr>
           <tr>
             <th scope="row"></th>
-            <td><input type="submit" class="btn btn-info" value="Submit"></td>
+            <td>
+              <input type="submit" class="btn btn-info" value="Submit" />
+            </td>
           </tr>
         </tbody>
       </table>
@@ -67,7 +95,8 @@
 
 </body>
 <script>
-  document.getElementById("greet").innerHTML = "<b>Welcome " + window.localStorage.getItem('user') + "!</b>";
+  document.getElementById('greet').innerHTML =
+    '<b>Welcome ' + window.localStorage.getItem('user') + '!</b>';
 </script>
 
 </html>

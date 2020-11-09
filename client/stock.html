@@ -7,6 +7,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-add-css="false"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="js/Chart.min.js"></script>
+  <script src="js/utils.js"></script>
   <link href="https://use.fontawesome.com/releases/v5.12.1/css/svg-with-js.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -25,7 +28,7 @@
         <li id="greet"><b>Welcome</b></li>
       </ul>
     </div>
-  </nav><br><br><br>
+  </nav>
   <div class="container">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -67,44 +70,9 @@
     </div>
   </div>
   <div class="container">
-    <table class="table" id="StockData">
-      <thead>
-        <tr>
-          <th scope="col">Company-MetaData</th>
-          <th scope="col">Stock-Info</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <canvas id="chart1"></canvas>
   </div>
-
-
-  <script>
-    // TODO: Hit the TIME_SERIES_DAILY endpoint of the alphavantage API for the company that was selected in the dropdown.Display the Json data
-    document.getElementById("greet").innerHTML = "<b>Welcome " + window.localStorage.getItem('user') + "!</b>";
-    button = document.getElementById("getData");
-    button.addEventListener("click", getData);
-
-    function getData(e) {
-      list = document.getElementById("company");
-      company = list.options[list.selectedIndex].value;
-      fetch("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + company +
-        "&apikey=TKY4WALC6M02J83K")
-        .then(
-          response => {
-            return response.json();
-          }
-        )
-        .then(data => {
-          html = "<tr><td id='metadata'></td><td id='stockInfo'></td></tr>";
-          tbody = document.getElementById("StockData").children[1];
-          tbody.innerHTML = html;
-          document.getElementById("metadata").innerText = JSON.stringify(data["Meta Data"], null, 4);
-          document.getElementById("stockInfo").innerText = JSON.stringify(data[
-            "Time Series (Daily)"], null, 4);
-        });
-    }
-  </script>
 </body>
+<script src="js/stock.js"></script>
 
 </html>

@@ -39,10 +39,20 @@
   overflow: scroll;
 }
 
+#addContactHead {
+  padding: 20px;
+}
+
 .addContactTable {
-  width: 50%;
+  box-shadow: 14px 10px 45px -22px rgba(43, 43, 43, 1);
+  border-radius: 10px;
+  width: 40%;
   margin: auto;
-  margin-top: 5vh;
+  margin-top: 4.5vh;
+}
+
+.addContactTable>tbody>tr>th {
+  vertical-align: middle;
 }
 
 .tool {

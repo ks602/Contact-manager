@@ -145,6 +145,7 @@ function editUser(e) {
       new_password: document.getElementById("acc_password_edit").value,
       new_role: document.getElementById("acc_role_edit").checked ? "admin" : "basic"
     };
+    console.log(data);
 
     if (data.new_login.trim().length == 0) {
       document.getElementById("errorMsg").style.display = "block";
